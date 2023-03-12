@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>跳动的心脏</title>
+	<style>
+		/* 心脏动画的样式 */
+		.heart {
+			position: relative;
+			display: inline-block;
+			width: 100px;
+			height: 90px;
+			transform: rotate(-45deg);
+			animation: beat 1s infinite;
+			animation-timing-function: ease-in-out;
+		}
+
+		.heart:before,
+		.heart:after {
+			position: absolute;
+			content: "";
+			left: 50px;
+			top: 0;
+			width: 50px;
+			height: 80px;
+			background: red;
+			border-radius: 50px 50px 0 0;
+			transform: rotate(-45deg);
+		}
+
+		.heart:after {
+			left: 0;
+			border-radius: 0 0 50px 50px;
+			transform: rotate(45deg);
+		}
+
+		/* 心跳动画的关键帧 */
+		@keyframes beat {
+			0% {
+				transform: scale(1) rotate(-45deg);
+			}
+			50% {
+				transform: scale(0.6) rotate(-45deg);
+			}
+			100% {
+				transform: scale(1) rotate(-45deg);
+			}
+		}
+	</style>
+</head>
+<body>
+	<div class="heart"></div>
+</body>
+</html>
